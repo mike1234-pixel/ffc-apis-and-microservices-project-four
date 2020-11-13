@@ -3,33 +3,72 @@
 
    <head>
       <title>Exercise Tracker | Free Code Camp</title>
-      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-      <link href="style.css" rel="stylesheet" type="text/css">
+      <!-- Google Fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+      <!-- Bootstrap core CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+      <!-- Local CSS -->
+      <link rel="stylesheet" type="text/css" href='style.css'>
+     
    </head>
 
    <body>
       <div class="container">
          <h1>Exercise tracker</h1>
+         <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
+         <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
+         <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+         <p>Enter your GET query into the url in the following way:</p>
+         <code>/api/exercise/log?userId=5faaeef1a37a3f00cf1c3500&from=2001-01-01&to=2002-01-01&limit=3</code>
+         <p>from, get and to are optional parameters, just enter the userId for all records for that user.</p>
           <form action="/api/exercise/new-user" method="post">
             <h3>Create a New User</h3>
             <p><code>POST /api/exercise/new-user</code></p>
-            <input id="uname" type="text" name="username" placeholder="username">
-            <input type="submit" value="Submit">
+            <div class="md-form">
+               <input type='text' id='uname' name='username' class="form-control text-dark" required=''>
+               <label class="text-dark" for='uname'>Username</label>
+             </div>
+            <input type="submit" class="btn btn-success" value="Submit">
           </form>
           <form action="/api/exercise/add" method="post">
             <h3>Add exercises</h3>
             <p><code>POST /api/exercise/add</code></p>
-            <input id="uid" type="text" name="userId" placeholder="userId*">
-            <input id="desc" type="text" name="description" placeholder="description*">
-            <input id="dur" type="text" name="duration" placeholder="duration* (mins.)">
-            <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
-            <input type="submit" value="Submit">
+            <div class="md-form">
+               <input type='text' id='uid' name='userId' class="form-control text-dark" required=''>
+               <label class="text-dark" for='userId'>UserId</label>
+             </div>
+             <div class="md-form">
+               <input type='text' id='desc' name='description' class="form-control text-dark" required=''>
+               <label class="text-dark" for='desc'>Description</label>
+             </div>
+             <div class="md-form">
+               <input type='text' id='dur' name='duration' class="form-control text-dark" required=''>
+               <label class="text-dark" for='dur'>Duration* (mins.)</label>
+             </div>
+             <div class="md-form">
+               <input type='text' id='dat' name='date' class="form-control text-dark" required=''>
+               <label class="text-dark" for='dat'>Date (yyyy-mm-dd)</label>
+             </div>
+            <input type="submit" class="btn btn-success" value="Submit">
           </form>
-          <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
-          <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
-          <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+          <video class="fg-video-1" autoPlay muted loop>
+            <source
+              src="https://coding-video.s3.eu-west-2.amazonaws.com/exercise.mp4"
+              type="video/mp4"
+            />
+            Your browser is not supported
+          </video>
       </div>
+      <!-- JQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
    </body>
 
 </html>

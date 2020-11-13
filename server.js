@@ -4,13 +4,14 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const moment = require('moment');
+const dotenv = require('dotenv').config({ path: './.env'});
 
 app.use(cors())
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-mongoose.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then((con) => {
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then((con) => {
     // console.log(con.connections);
     console.log("DB connection successful.");
   })
